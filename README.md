@@ -23,7 +23,7 @@ Proximamente
 > FrontEnd
  ```sh
 Html
-TailWind
+TailWind CSS
 ```
 
 >BackEnd
