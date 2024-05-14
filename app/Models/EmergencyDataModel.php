@@ -22,4 +22,9 @@ class EmergencyDataModel extends Model
     'st_number',
     'id_adress'	
   ];
+
+  public function getEmergencyData()
+  {
+    return $this->db->query("SELECT * FROM emergency_data")->getResult();
+  }
 }

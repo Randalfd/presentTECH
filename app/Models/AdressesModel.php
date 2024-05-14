@@ -17,4 +17,8 @@ class AdressesModel extends Model
     'id_city'
   ];
   
+  public function getAdresses()
+  {
+    return $this->db->query("SELECT * FROM adresses")->getResult();
+  }
 }

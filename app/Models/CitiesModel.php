@@ -17,4 +17,8 @@ class CitiesModel extends Model
     'postal_code'
   ];
   
+  public function getCities()
+  {
+    return $this->db->query("SELECT * FROM cities")->getResult();
+  }
 }

@@ -4,8 +4,8 @@ use CodeIgniter\Model;
 
 class UsersSchoolDatesModel extends Model
 {
-  protected $table      = 'users_school_dates';
-  protected $primaryKey = 'id_user_school_date';
+  protected $table      = 'users_rooms';
+  protected $primaryKey = 'id_user_room';
 
   protected $useAutoIncrement = true;
 
@@ -17,4 +17,8 @@ class UsersSchoolDatesModel extends Model
     'id_school_date'
   ];
   
+  public function getUsersSchoolDates()
+  {
+    return $this->db->query("SELECT * FROM users_school_dates")->getResult();
+  }
 }

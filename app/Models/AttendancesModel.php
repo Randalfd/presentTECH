@@ -23,23 +23,6 @@ Class attendancesModel extends Model
     'id_location'
   ];
 
-  public function getUserattendance($id_user)
-  {
-    return $this->db->query("
-    SELECT 
-      a.id_attendance, 
-      a.id_mk, a.day, 
-      a.movent, 
-      a.id_location
-    FROM attendances AS a
-    INNER JOIN magnetic_keys AS mk
-      ON a.id_mk = mk.id_mk
-    INNER JOIN users AS u
-      ON mk.id_user = u.id_user
-    WHERE u.id_user = $id_user
-    ")->getResult();
-  }
-
   public function getAttendancesOfUsers($id_mk){
     return $this->db->query("
     SELECT 
@@ -68,18 +51,5 @@ Class attendancesModel extends Model
     ")
     ->getResult();
   }
-//SELECT
-// id_attendance,
-// id_mk,
-// day,
-// hour,
-// movent,
-// id_location ,
-// CASE 
-// WHEN hour <= '07:45:00' OR hour <= '07:50:00' THEN 'Llegada a timepo' 
-// WHEN hour >= '07:50:01' THEN 'Llegada tarde'
-// ELSE 'No se ha registrado'
-// END AS 'arrived'
-// FROM
-// attendances 
+
 }
