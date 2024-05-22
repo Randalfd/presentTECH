@@ -55,4 +55,18 @@ class UsersModel extends Model
     ")->getResult();
 
   }
+
+  public function register($user)
+  {
+    $this->db->table('users')->insert($user);
+  }
+  public function login($user)
+  {
+    $user = $this->db->query("SELECT * FROM users WHERE email = '$user[email]' AND password = '$user[password]'")->getResult();
+    if($user){
+      return $user;
+    }else{
+      return false;
+    }
+  }
 }
