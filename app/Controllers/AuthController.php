@@ -6,7 +6,7 @@ use CodeIgniter\Controller;
 
 class UsersController extends BaseController
 {
-
+  
   private $usersModel;
   public function __construct()
   {
