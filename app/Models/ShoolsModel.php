@@ -18,4 +18,8 @@ class SchoolsModel extends Model
     'st_number'
   ];
   
+  public function getSchools()
+  {
+    return $this->db->query("SELECT * FROM schools")->getResult();
+  }
 }

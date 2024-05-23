@@ -34,5 +34,17 @@ class MagneticKeysModel extends Model
     WHERE u.id_user = $id_user
     ")->getResult();
   }
+
+  public function getMkWhitLocation($id_location)
+  {
+    // Esta query tiene como fin poder obtener las llaves magnéticas que se utilizaron en una ubicación específica
+    return $this->db->query("
+    SELECT mk.id_mk, mk.code, mk.status, l.location_name
+    FROM magnetic_keys AS mk
+    INNER JOIN locations AS l
+    ON mk.id_location = l.id_location
+    WHERE l.id_location = $id_location
+    ")->getResult();
+  } 
 }
 ?>

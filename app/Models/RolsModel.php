@@ -14,5 +14,10 @@ class RolsModel extends Model
   protected $useSoftDeletes = true;
 
   protected $allowedFields = ['rol_name', 'autority'];
+
+  public function getRols()
+  {
+    return $this->db->query("SELECT * FROM rols")->getResult();
+  }
 }
 ?>
