@@ -22,13 +22,10 @@ class SchoolsController extends BaseController
       return view('schools/index');
   }
 
-  public function register($school){
-    $school = [
-      'school_name' => $this->request->getPost('school_name'),
-      'city' => $this->request->getPost('city'),
-      'st_number' => $this->request->getPost('st_number')
-    ];
-
+  public function school_register($school){
+  
+    
   }
+
 
 }
