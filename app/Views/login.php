@@ -19,7 +19,11 @@
       <div class="form-group">
          <label>Contraseña</label>
          <input type="password" name="password" id="contrasena" placeholder="Ingrese su contraseña" required>
-         
+         <p style="color: rgba( 110, 44, 0); font-size: 15px"><?php
+            if(session()->getFlashdata("errors") != "") {
+               echo session()->getFlashdata("errors");
+            }
+         ?></p>
       </div>
 
       <div class="form-group">
