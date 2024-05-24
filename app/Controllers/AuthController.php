@@ -41,26 +41,28 @@ class AuthController extends BaseController
       ];
 
       $this->usersModel->register($data);
-      return redirect()->to(base_url() . '/login')->with('message', 'Usuario registrado correctamente');
+      return redirect()->to(base_url( '/login'))->with('message', 'Usuario registrado correctamente');
     } else {
-      return redirect()->to(base_url() . '/register')->with('errors', 'Las contraseñas no coinciden');
+      return redirect()->to(base_url('/register')  )->with('errors', 'Las contraseñas no coinciden');
     }
   }
 
   public function login()
   {
-    if ($this->request->getMethod() == 'post') {
-      $user = [
-        'email' => $this->request->getPost('email'),
-        'password' => $this->request->getPost('password')
-      ];
-      $user['password'] = password_hash('password', PASSWORD_BCRYPT);
-      $user = $this->usersModel->login($user);
-      if ($user) {
-        return redirect()->to(base_url() . '/')->with('message', 'Bienvenido');
-      } else {
-        return redirect()->to(base_url() . 'login')->with('errors', 'Usuario o contraseña incorrectos');
-      }
+    $user = 
+    [ 
+      'email' =>$email = $this->request->getPOST('email'),
+      'password' => $password = $this->request->getPOST('password')
+    ];
+
+    $user = $this->usersModel->where('email', $user['email'])->first();
+    
+    if ($user){
+      $hashed_password = $user['password'];
+      $user['password'] = $hashed_password;
+      return;
+    if (password_verify($password, $hashed_password)){}
     }
+
   }
 }

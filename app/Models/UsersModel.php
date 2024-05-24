@@ -33,6 +33,10 @@ class UsersModel extends Model
     return $this->db->query("SELECT * FROM users WHERE id_user = $id_user")->getResult();
   }
 
+  public function getUsersByEmail($email)
+  {
+    return $this->db->query("SELECT * FROM users WHERE email = '$email'")->getResult();
+  }
   public function getUsersRol()
   {
     return $this->db->query("
@@ -58,13 +62,5 @@ class UsersModel extends Model
   {
     $this->db->table('users')->insert($user);
   }
-  public function login($user)
-  {
-    $user = $this->db->query("SELECT * FROM users WHERE email = '$user[email]' AND password = '$user[password]'")->getResult();
-    if($user){
-      return $user;
-    }else{
-      return false;
-    }
-  }
+ 
 }
