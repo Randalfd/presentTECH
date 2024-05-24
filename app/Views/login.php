@@ -9,7 +9,7 @@
     <div class="login-container">
         <h2>Inicia Sesion</h2>
 
-    <form method="post" action="<?= base_url('verificarUsuario') ?>">
+    <form method="post" action="<?= base_url('/loginn') ?>">
       
       <div class="form-group">
          <label>Email</label>
@@ -18,12 +18,8 @@
 
       <div class="form-group">
          <label>Contraseña</label>
-         <input type="password" name="contrasena" id="contrasena" placeholder="Ingrese su contraseña" required>
-         <p style="color: rgba( 110, 44, 0); font-size: 15px"><?php
-            if(session()->getFlashdata("error") != "") {
-               echo session()->getFlashdata("error");
-            }
-         ?></p>
+         <input type="password" name="password" id="contrasena" placeholder="Ingrese su contraseña" required>
+         
       </div>
 
       <div class="form-group">

@@ -15,4 +15,15 @@ class MagneticKeysController extends BaseController
   {
       return view('magneticKeys/index');
   }
+
+  public function delete($id)
+  {
+      $this->magneticKeysModel->delete($id); 
+  }
+  public function edit($id)
+  {
+      $magneticKey = $this->magneticKeysModel->find($id);
+      return view('magneticKeys/edit', ['magneticKey' => $magneticKey]);
+  }
+
 }
