@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="form-group">
-			<label>Apellido</label>
+			<label>DNI</label>
 			<input type="text" name="DNI" placeholder="Ingrese su DNI" required>
 		</div>
 
