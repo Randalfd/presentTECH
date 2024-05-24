@@ -31,7 +31,7 @@
       </div>
 
       <div class="form-group">
-        <label>¿No tenes cuenta?</label><a href="<?= base_url('register') ?>"> registrate</a>
+        <label>¿No tenes cuenta?</label><a href="<?= base_url('loginhome') ?>"> registrate</a>
       </div>
 
    </form>

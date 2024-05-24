@@ -52,6 +52,9 @@ $routes -> group('users',function($routes){
 });
 
 $routes->get('login', 'Home::home_login');
+
+$routes->get('loginhome','Home::after_login');
+
 $routes->get('/register','Home::home_register');
 
 $routes->post('/loginn','AuthController::login');

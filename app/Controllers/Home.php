@@ -18,4 +18,9 @@ class Home extends BaseController
     {
         return view('register');
     }
+
+    public function after_login()
+    {
+        return view('loginhome');
+    }
 }
