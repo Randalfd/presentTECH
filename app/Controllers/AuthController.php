@@ -49,19 +49,27 @@ class AuthController extends BaseController
 
   public function login()
   {
-    $user = 
-    [ 
-      'email' =>$email = $this->request->getPOST('email'),
-      'password' => $password = $this->request->getPOST('password')
-    ];
+   
+    $email = $this->request->getPOST('email');
+    $password = strval($this->request->getPost('password'));
 
-    $user = $this->usersModel->where('email', $user['email'])->first();
-    
-    if ($user){
-      $hashed_password = $user['password'];
-      $user['password'] = $hashed_password;
+    $valid_user = $this->usersModel->where('email', $email)->first();
+
+    if ($valid_user && password_verify($password, $valid_user['password'])) {
+      $session = session();
+      $session->set('id', $valid_user['id_user']);
+      $session->set('first_name', $valid_user['first_name']);
+      $session->set('last_name', $valid_user['last_name']);
+      $session->set('email', $valid_user['email']);
+      $session->set('DNI', $valid_user['DNI']);
+      $session->set('gender', $valid_user['gender']);
+      $session;
       return;
-    if (password_verify($password, $hashed_password)){}
+    } else {
+      echo "Password hash in DB: " . $valid_user['password'] . "<br>";
+      echo "Password provided: " . $password . "<br>";
+      echo "Password verify result: " . (password_verify($password, $valid_user['password']) ? 'true' : 'false') . "<br>";
+    return;
     }
 
   }
