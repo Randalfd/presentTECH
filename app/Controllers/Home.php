@@ -9,6 +9,11 @@ class Home extends BaseController
         return view('home');
     }
 
+    public function logohome()
+    {
+        return view('home');
+    }
+
     public function home_login()
     {
         return view('login');
