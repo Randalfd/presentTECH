@@ -16,53 +16,55 @@ class AuthController extends BaseController
 
   public function register()
   {
-    $user = [
-      'first_name' => $this->request->getPost('first_name'),
-      'last_name' => $this->request->getPost('last_name'),
-      'DNI' => $this->request->getPost('DNI'),
-      'email' => $this->request->getPost('email'),
-      'gender' => $this->request->getPost('gender'),
-      'password' => $this->request->getPost('password'),
-      'repeat_password' => $this->request->getPost('repeat_password')
+    $first_name = $this->request->getPost('first_name');
+    $last_name = $this->request->getPost('last_name');
+    $DNI = $this->request->getPost('DNI');
+    $email = $this->request->getPost('email');
+    $gender = $this->request->getPost('gender');
+    $password = $this->request->getPost('password');
+    $repeat_password = $this->request->getPost('repeat_password');
+
+    $same_email = $this->usersModel->where('email', $email)->first();
+    if ($same_email) {
+        return redirect()->to(base_url() . '/register')->with('errors', 'El email ya está registrado');
+    }
+
+    if ($password != $repeat_password) {
+        return redirect()->to(base_url('/register'))->with('errors', 'Las contraseñas no coinciden');
+    }
+
+    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+    $data = [
+        'first_name' => $first_name,
+        'last_name' => $last_name,
+        'email' => $email,
+        'DNI' => $DNI,
+        'password' => $hashed_password
     ];
 
-    $hashed_password = password_hash('password', PASSWORD_BCRYPT);
-    $same_email = $this->usersModel->where('email', $user['email'])->first();
-    if ($same_email) {
-      return redirect()->to(base_url() . '/register')->with('errors', 'El email ya está registrado');
-    }
-    if ($user['password'] == $user['repeat_password']) {
-      $data = [
-        'first_name' => $user['first_name'],
-        'last_name' => $user['last_name'],
-        'email' => $user['email'],
-        'DNI' => $user['DNI'],
-        'password' => $hashed_password
-      ];
-
-      $this->usersModel->register($data);
-      return redirect()->to(base_url( '/login'))->with('message', 'Usuario registrado correctamente');
-    } else {
-      return redirect()->to(base_url('/register')  )->with('errors', 'Las contraseñas no coinciden');
-    }
+    $this->usersModel->register($data);
+    return redirect()->to(base_url('/login'))->with('message', 'Usuario registrado correctamente');
   }
 
   public function login()
-  {
-    $user = 
-    [ 
-      'email' =>$email = $this->request->getPOST('email'),
-      'password' => $password = $this->request->getPOST('password')
-    ];
+    {
+      $email = $this->request->getPost('email');
+      $password = $this->request->getPost('password');
+      $user = $this->usersModel->where('email', $email)->first();
+      if ($user) {
+          $hashed_password = $user['password'];
+          if (password_verify($password, $hashed_password)) {
+              session()->set('user_id', $user['id_user']);
+              session()->set('user_email', $user['email']);
+              session()->set('is_logged_in', true);
 
-    $user = $this->usersModel->where('email', $user['email'])->first();
-    
-    if ($user){
-      $hashed_password = $user['password'];
-      $user['password'] = $hashed_password;
-      return;
-    if (password_verify($password, $hashed_password)){}
+              return redirect()->to(base_url('/loginhome'));
+          } else {
+              return redirect()->to(base_url('/login'))->with('errors', 'Contraseña incorrecta');
+            }
+      } else {
+        return redirect()->to(base_url('/login'))->with('errors', 'El correo electrónico no está registrado');
+      }
     }
-
-  }
 }

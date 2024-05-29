@@ -79,8 +79,8 @@
             </div>
 
             <h3 class="text-2xl font-bold mb-4">Contáctanos</h3>
-            <p class="text-gray-700">Email: contacto@presentech.com</p>
-            <p class="text-gray-700">Teléfono: +123 456 7890</p>
+            <p class="text-gray-700">Email: presentech@gmail.com</p>
+            <p class="text-gray-700">Teléfono: +54 3571 00-0000</p>
         </div>
     </div>
 
