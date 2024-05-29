@@ -29,6 +29,11 @@ class AuthController extends BaseController
       return redirect()->to(base_url() . '/register')->with('errors', 'El email ya está registrado');
     }
 
+    $same_DNI = $this->usersModel->where('DNI', $DNI)->first();
+    if ($same_DNI) {
+      return redirect()->to(base_url() . '/register')->with('errors', 'El DNI ya está registrado');
+    }
+
     if ($password != $repeat_password) {
       return redirect()->to(base_url('/register'))->with('errors', 'Las contraseñas no coinciden');
     }
