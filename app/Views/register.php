@@ -59,6 +59,11 @@
           <a href="<?= base_url('login') ?>" class="font-medium text-indigo-600 hover:text-indigo-500">Iniciar sesión</a>
         </div>
       </div>
+      <div class="text-sm text-red-500">
+        <?php if (session()->getFlashdata("errors") != ""): ?>
+          <?= session()->getFlashdata("errors") ?>
+        <?php endif; ?>
+      </div>
     </form>
   </div>
 </body>

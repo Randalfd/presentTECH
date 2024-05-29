@@ -14,7 +14,7 @@
             <a href="<?= base_url('loginhome') ?>">
                 <img src="<?= base_url('img/logonegro.png') ?>" alt="Botón" class="h-12"/>
             </a>
-            <h1 class="ml-4 text-xl font-semibold text-black">Bienvenido <?= session()->get('user_name') ?></h1>
+            <h1 class="ml-4 text-xl font-semibold text-black">Bienvenido,  <?= session()->get('user_name') ?></h1>
         </div>
 
         <div class="flex items-center space-x-4">
@@ -23,7 +23,7 @@
                 <i class="fas fa-user"></i> <!-- Icono de usuario -->
                 Perfil
             </a>
-            <a href="<?= base_url('home') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
+            <a href="<?= base_url('logout') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
                 <i class="fas fa-arrow-left"></i> <!-- Icono de flecha hacia atrás -->
                 Salir
             </a>
