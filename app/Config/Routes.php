@@ -62,3 +62,5 @@ $routes->get('/register','Home::home_register');
 $routes->post('/loginn','AuthController::login');
 
 $routes->post('/register','AuthController::register');
+
+$routes->get('/logout','AuthController::logout');
