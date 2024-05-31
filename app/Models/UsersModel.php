@@ -47,13 +47,14 @@ class UsersModel extends Model
     ")->getResult();
   }
 
-  public function searchUsers($first_name,$last_name){
+  public function searchUsers($user){
+    
     return $this->db->query("
     SELECT u.id_user, u.first_name, u.last_name, u.age, u.DNI, u.email, u.password, u.number_phone, r.rol_name
     FROM users AS u
     INNER JOIN roles AS r
     ON u.id_rol = r.id_rol
-    WHERE u.first_name LIKE '%$first_name%' OR u.last_name LIKE '%$last_name%'
+    WHERE u.first_name LIKE '%$user%'
     ")->getResult();
 
   }
