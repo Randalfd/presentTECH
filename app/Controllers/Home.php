@@ -4,28 +4,31 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('home');
+        echo view('home');
+        echo view('footer');
     }
 
     public function logohome()
     {
-        return view('home');
+        echo view('home');
+        echo view('footer');
     }
 
     public function home_login()
     {
-        return view('login');
+        echo view('login');
     }
 
     public function home_register()
     {
-        return view('register');
+        echo view('register');
     }
 
     public function after_login()
     {
-        return view('loginhome');
+        echo view('loginhome');
+        echo view('footer');
     }
 }
