@@ -15,4 +15,5 @@ class UsersClassroomsController extends BaseController
   {
       return view('users_classrooms/index');
   }
+
 }

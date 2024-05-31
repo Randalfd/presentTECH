@@ -15,4 +15,12 @@ class UsersController extends BaseController
   {
       return view('users/index');
   }
+
+  public function searchUsers(){
+
+    $search = $this->request->getPost('search');
+    $users = $this->usersModel->searchUsers($search);
+    return view('users/', ['users' => $users]);
+  }
+
 }

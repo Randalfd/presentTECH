@@ -19,7 +19,6 @@
 
         <div class="flex items-center space-x-4">
             <input type="text" placeholder="Buscar usuarios..." class="bg-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-            <a href="#" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
                 <i class="fas fa-user"></i> <!-- Icono de usuario -->
                 Perfil
             </a>
