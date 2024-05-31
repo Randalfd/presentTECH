@@ -15,11 +15,9 @@ class UsersModel extends Model
     'id_user',
     'first_name',
     'last_name',
-    'age',
     'DNI',
     'email',
     'password',
-    'number_phone',
     'id_rol'
   ];
 
@@ -40,7 +38,7 @@ class UsersModel extends Model
   public function getUsersRol()
   {
     return $this->db->query("
-    SELECT u.id_user, u.first_name, u.last_name, u.age, u.DNI, u.email, u.password, u.number_phone, r.rol_name
+    SELECT u.id_user, u.first_name, u.last_name, u.DNI, u.email, u.password, r.rol_name
     FROM users AS u
     INNER JOIN roles AS r
     ON u.id_rol = r.id_rol
@@ -49,7 +47,7 @@ class UsersModel extends Model
 
   public function searchUsers($first_name,$last_name){
     return $this->db->query("
-    SELECT u.id_user, u.first_name, u.last_name, u.age, u.DNI, u.email, u.password, u.number_phone, r.rol_name
+    SELECT u.id_user, u.first_name, u.last_name, u.DNI, u.email, u.password, r.rol_name
     FROM users AS u
     INNER JOIN roles AS r
     ON u.id_rol = r.id_rol

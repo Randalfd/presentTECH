@@ -14,9 +14,6 @@ class Filters extends BaseConfig
     /**
      * Configures aliases for Filter classes to
      * make reading things nicer and simpler.
-     *
-     * @var array<string, class-string|list<class-string>> [filter_name => classname]
-     *                                                     or [filter_name => [classname1, classname2, ...]]
      */
     public array $aliases = [
         'csrf'          => CSRF::class,
@@ -24,13 +21,13 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'SessionAdmin'  => \App\Filters\SessionAdmin::class,
+        'SessionUser'   => \App\Filters\SessionUser::class
     ];
 
     /**
      * List of filter aliases that are always
      * applied before and after every request.
-     *
-     * @var array<string, array<string, array<string, string>>>|array<string, list<string>>
      */
     public array $globals = [
         'before' => [
@@ -54,9 +51,7 @@ class Filters extends BaseConfig
      *
      * If you use this, you should disable auto-routing because auto-routing
      * permits any HTTP method to access a controller. Accessing the controller
-     * with a method you don't expect could bypass the filter.
-     *
-     * @var array<string, list<string>>
+     * with a method you don’t expect could bypass the filter.
      */
     public array $methods = [];
 
@@ -66,8 +61,17 @@ class Filters extends BaseConfig
      *
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
-     *
-     * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        "SessionAdmin" => [
+            "before" => [
+                '/admis','/gestionproductos','/controlarcompras','/cuenta','/insertarprod','editar/(:num)','borrar/(:num)','update','edi/(:num)','edit','/editarprod','eliminar/(:num)','registeradmis'
+            ]
+        ],
+        "SessionUser" => [
+            "before" => [
+                'loginhome'
+            ]
+        ]
+    ];
 }

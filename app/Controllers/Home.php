@@ -28,4 +28,9 @@ class Home extends BaseController
     {
         return view('loginhome');
     }
+
+    public function profile()
+    {
+        return view('data_users');
+    }
 }

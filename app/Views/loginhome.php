@@ -14,12 +14,12 @@
             <a href="<?= base_url('loginhome') ?>">
                 <img src="<?= base_url('img/logonegro.png') ?>" alt="Botón" class="h-12"/>
             </a>
-            <h1 class="ml-4 text-xl font-semibold text-black">Bienvenido,  <?= session()->get('user_name') ?></h1>
+            <h1 class="ml-4 text-xl font-semibold text-black">Bienvenido,  <?= session()->get('user_data')['first_name']?></h1>
         </div>
 
         <div class="flex items-center space-x-4">
             <input type="text" placeholder="Buscar usuarios..." class="bg-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-            <a href="#" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
+            <a href="<?= base_url('data_users') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
                 <i class="fas fa-user"></i> <!-- Icono de usuario -->
                 Perfil
             </a>

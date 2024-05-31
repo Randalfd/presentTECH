@@ -63,11 +63,9 @@ class AuthController extends BaseController
       $hashed_password = $user['password'];
       if (password_verify($password, $hashed_password)) {
         session()->set([
-          'user_id' => $user['id_user'],
-          'user_email' => $user['email'],
-          'user_name' => $user['first_name'] . ' ' . $user['last_name'],
-          'is_logged_in' => true
+          'user_data' => $user
         ]);
+
 
         return redirect()->to(base_url('/loginhome'));
       } else {

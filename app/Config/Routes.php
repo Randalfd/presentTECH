@@ -64,3 +64,5 @@ $routes->post('/loginn','AuthController::login');
 $routes->post('/register','AuthController::register');
 
 $routes->get('/logout','AuthController::logout');
+
+$routes->get('data_users','Home::profile');
