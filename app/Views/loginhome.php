@@ -20,10 +20,13 @@
 		</div>
 
 		<div class="flex items-center space-x-4">
-			<?php if (session()->get('user_data')['id_rol'] == 1) : ?>
-				<input type="text" placeholder="Buscar usuarios..." class="bg-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-			<?php endif; ?>
-			<a href="<?= base_url('data_users') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
+            <?php if (session()->get('user_data')['id_rol'] == 1) : ?>
+                <form method="GET" action="<?= base_url('search') ?>">
+                    <input type="text" name="search" placeholder="Buscar usuarios..." class="bg-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md">Buscar</button>
+                </form>
+            <?php endif; ?>
+			<a href="<?= base_url('profile') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
 				<i class="fas fa-user"></i> <!-- Icono de usuario -->
 				Perfil
 			</a>

@@ -39,7 +39,11 @@
         </div>
         <div class="py-2">
           <label for="gender" class="sr-only">Género</label>
-          <input id="gender" name="gender" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Género">
+          <select id="gender" name="gender" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+            <option value="" disabled selected>Seleccione su género</option>
+            <option value="0">Masculino</option>
+            <option value="1">Femenino</option>
+          </select>
         </div>
         <div class="py-2">
           <label for="password" class="sr-only">Contraseña</label>

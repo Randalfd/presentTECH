@@ -81,4 +81,17 @@ class AuthController extends BaseController
     session()->destroy();
     return redirect()->to(base_url('home'));
   }
+
+  public function search()
+  {
+    $search = $this->request->getGet('search');
+    $users = $this->usersModel->searchUsers($search);
+    return view('search_results', ['users' => $users]);
+  }
+
+  public function showUserProfile()
+  {
+    $user = session()->get('user_data');
+    return view('profile', ['user' => $user]);
+  }
 }

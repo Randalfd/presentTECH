@@ -65,6 +65,8 @@ $routes->post('/register','AuthController::register');
 
 $routes->get('/logout','AuthController::logout');
 
-$routes->get('data_users','Home::profile');
-
 $routes->get('administration','Home::admis');
+
+$routes->get('search','AuthController::search');
+
+$routes->get('profile','AuthController::showUserProfile');
