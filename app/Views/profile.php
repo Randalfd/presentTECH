@@ -9,13 +9,26 @@
 </head>
 <body class="bg-gray-300 flex items-center justify-center min-h-screen">
   <div class="w-full max-w-4xl p-8 space-y-8 bg-gray-800 text-white rounded-lg shadow-lg">
-    <h2 class="mt-6 text-center text-3xl font-extrabold text-white">Perfil de Usuario</h2>
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <img src="<?= base_url('img/profile.png') ?>" alt="Profile Picture" class="w-20 h-20 rounded-full">
+        <div>
+          <h2 class="text-2xl font-bold"><?= $user['first_name'] . ' ' . $user['last_name'] ?></h2>
+          <p class="text-gray-400">@guest</p>
+          <p class="text-gray-400">active 6 minutes ago</p>
+        </div>
+      </div>
+    </div>
     <div class="bg-white p-6 rounded-lg shadow-lg text-black">
+      <h3 class="text-xl font-semibold mb-4">Basic Info</h3>
       <p><strong>ID:</strong> <?= $user['id_user'] ?></p>
       <p><strong>Nombre:</strong> <?= $user['first_name'] ?></p>
       <p><strong>Apellido:</strong> <?= $user['last_name'] ?></p>
       <p><strong>DNI:</strong> <?= $user['DNI'] ?></p>
       <p><strong>Correo Electrónico:</strong> <?= $user['email'] ?></p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-lg text-black">
+      <h3 class="text-xl font-semibold mb-4">Personal Info</h3>
       <p><strong>Género:</strong> <?= $user['gender'] == 0 ? 'Masculino' : 'Femenino' ?></p>
       <p><strong>Rol:</strong> <?= $user['id_rol'] ?></p>
     </div>
