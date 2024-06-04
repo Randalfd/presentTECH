@@ -6,12 +6,16 @@ Este proyecto final de Informática es un esfuerzo culminante que demuestra la h
 
 > INICIO
 ```sh
-Proximamente
+Página Home.
+Vista de inicio de sesión.
+Página after login.
+Cerrar sesión.
 ```
 
 > LOGIN/REGISTRO
  ```sh
-Proximamente
+Vista de inicio de sesión.
+Vista de registro.
 ```
 
 > ADMINISTRACION
