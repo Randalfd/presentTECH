@@ -3,7 +3,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class UsersModel extends Model
 {
   protected $table      = 'users';
   protected $primaryKey = 'id_user';
@@ -11,33 +11,54 @@ class UserModel extends Model
   protected $useAutoIncrement = true;
 
   protected $returnType     = 'array';
-  protected $useSoftDeletes = true;
-
   protected $allowedFields = [
     'id_user',
     'first_name',
     'last_name',
-    'age',
     'DNI',
     'email',
     'password',
-    'number_phone',
     'id_rol'
   ];
+
+  public function getUsers()
+  {
+    return $this->db->query("SELECT * FROM users")->getResult();
+  }
 
   public function getUserById($id_user)
   {
     return $this->db->query("SELECT * FROM users WHERE id_user = $id_user")->getResult();
   }
 
+  public function getUsersByEmail($email)
+  {
+    return $this->db->query("SELECT * FROM users WHERE email = '$email'")->getResult();
+  }
   public function getUsersRol()
   {
     return $this->db->query("
-    SELECT u.id_user, u.first_name, u.last_name, u.age, u.DNI, u.email, u.password, u.number_phone, r.rol_name
+    SELECT u.id_user, u.first_name, u.last_name, u.DNI, u.email, u.password, r.rol_name
     FROM users AS u
-    INNER JOIN roles AS r
+    INNER JOIN rols AS r
     ON u.id_rol = r.id_rol
     ")->getResult();
   }
 
+  public function searchUsers($search)
+{
+    return $this->db->query("
+    SELECT u.id_user, u.first_name, u.last_name, u.DNI, u.email, u.password, r.rol_name
+    FROM users AS u
+    INNER JOIN rols AS r
+    ON u.id_rol = r.id_rol
+    WHERE u.first_name LIKE '%$search%' OR u.last_name LIKE '%$search%'
+    ")->getResult();
+}
+
+  public function register($user)
+  {
+    $this->db->table('users')->insert($user);
+  }
+ 
 }

@@ -17,4 +17,9 @@ class LocationsModel extends Model
     'location_name',
     'autority_required'
   ];
+
+  public function getLocations()
+  {
+    return $this->db->query("SELECT * FROM locations")->getResult();
+  }
 }

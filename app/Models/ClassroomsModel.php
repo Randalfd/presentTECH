@@ -18,4 +18,8 @@ class ClassroomsModel extends Model
     'id_shool'
   ];
   
+  public function getClassrooms()
+  {
+    return $this->db->query("SELECT * FROM classrooms")->getResult();
+  }
 }
