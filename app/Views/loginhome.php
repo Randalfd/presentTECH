@@ -16,6 +16,35 @@
 			<a href="<?= base_url('loginhome') ?>">
 				<img src="<?= base_url('img/logonegro.png') ?>" alt="Botón" class="h-12" />
 			</a>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c4fe78ecfc8ede58b5be919819882cfc53f9100b
+			<h1 class="ml-4 text-xl font-semibold text-black">Bienvenido, <?= session()->get('user_data')['first_name'] ?></h1>
+		</div>
+
+		<div class="flex items-center space-x-4">
+            <?php if (session()->get('user_data')['id_rol'] == 1) : ?>
+                <form method="GET" action="<?= base_url('search') ?>">
+                    <input type="text" name="search" placeholder="Buscar usuarios..." class="bg-white border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md">Buscar</button>
+                </form>
+            <?php endif; ?>
+			<a href="<?= base_url('profile') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
+				<i class="fas fa-user"></i> <!-- Icono de usuario -->
+				Perfil
+			</a>
+			<?php if (session()->get('user_data')['id_rol'] == 1) : ?>
+				<a href="<?= base_url('administration') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
+					<i class="fas fa-user"></i> <!-- Icono de usuario -->
+					Administración
+				</a>
+			<?php endif; ?>
+			<a href="<?= base_url('logout') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
+				<i class="fas fa-arrow-left"></i> <!-- Icono de flecha hacia atrás -->
+<<<<<<< HEAD
+				Cerrar Sesion
+=======
 			<h1 class="ml-4 text-xl font-semibold text-black">Bienvenido, <?= session()->get('user_name') ?></h1>
 		</div>
 
@@ -27,6 +56,10 @@
 			<a href="<?= base_url('logout') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
 				<i class="fas fa-arrow-left"></i> <!-- Icono de flecha hacia atrás -->
 				Salir
+>>>>>>> 700345297c0561cff6de78131e0a7e83cdad462e
+=======
+				Cerrar Sesión
+>>>>>>> c4fe78ecfc8ede58b5be919819882cfc53f9100b
 			</a>
 			<button onclick="window.location.reload();" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300" title="Recargar página"><i class="fas fa-sync-alt"></i></button>
 		</div>
@@ -63,7 +96,38 @@
 		</div>
 
 		<hr class="border-t border-gray-300 mb-8">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c4fe78ecfc8ede58b5be919819882cfc53f9100b
+
+		<div class="text-center">
+			<h3 class="text-2xl font-bold mb-4">Síguenos en Redes Sociales</h3>
+			<div class="flex justify-center space-x-4 mb-4">
+				<a href="https://www.facebook.com" target="_blank" class="text-blue-600 hover:text-blue-800">
+					<i class="fab fa-facebook-f fa-2x"></i>
+				</a>
+				<a href="https://www.twitter.com" target="_blank" class="text-blue-400 hover:text-blue-600">
+					<i class="fab fa-twitter fa-2x"></i>
+				</a>
+				<a href="https://www.instagram.com" target="_blank" class="text-pink-600 hover:text-pink-800">
+					<i class="fab fa-instagram fa-2x"></i>
+				</a>
+				<a href="https://www.linkedin.com" target="_blank" class="text-blue-700 hover:text-blue-900">
+					<i class="fab fa-linkedin fa-2x"></i>
+				</a>
+			</div>
+
+			<h3 class="text-2xl font-bold mb-4">Contáctanos</h3>
+			<p class="text-gray-700">Email: presentech@gmail.com</p>
+			<p class="text-gray-700">Teléfono: +54 3571 00-0000</p>
+		</div>
+<<<<<<< HEAD
+=======
+>>>>>>> 700345297c0561cff6de78131e0a7e83cdad462e
 	</div>
+=======
+>>>>>>> c4fe78ecfc8ede58b5be919819882cfc53f9100b
 	</div>
 
 </body>
