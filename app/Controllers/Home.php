@@ -6,13 +6,7 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		echo view('header');
-		echo view('home');
-		echo view('footer');
-	}
-
-	public function logohome()
-	{
+		echo view('nav');
 		echo view('home');
 		echo view('footer');
 	}
@@ -29,7 +23,7 @@ class Home extends BaseController
 
 	public function after_login()
 	{
-		echo view('header');
+		echo view('nav2');
 		echo view('loginhome');
 		echo view('footer');
 	}

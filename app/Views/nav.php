@@ -1,3 +1,9 @@
+<head>
+  <meta charset="UTF-8">
+  <script src="https://kit.fontawesome.com/adead18d3c.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="<?= base_url('img/logonegro.png') ?>">
+</head>
 <header class="bg-gray-400 p-4 flex items-center justify-between">
   <div class="flex items-center">
     <a href="<?= base_url('home') ?>">
