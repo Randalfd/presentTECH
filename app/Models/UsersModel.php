@@ -46,22 +46,32 @@ class UsersModel extends Model
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   public function searchUsers($search)
 {
 =======
   public function searchUsers($user){
     
 >>>>>>> 700345297c0561cff6de78131e0a7e83cdad462e
+=======
+
+>>>>>>> c4fe78ecfc8ede58b5be919819882cfc53f9100b
     return $this->db->query("
     SELECT u.id_user, u.first_name, u.last_name, u.DNI, u.email, u.password, r.rol_name
     FROM users AS u
     INNER JOIN rols AS r
     ON u.id_rol = r.id_rol
 <<<<<<< HEAD
+<<<<<<< HEAD
     WHERE u.first_name LIKE '%$search%' OR u.last_name LIKE '%$search%'
 =======
     WHERE u.first_name LIKE '%$user%'
 >>>>>>> 700345297c0561cff6de78131e0a7e83cdad462e
+=======
+
+    WHERE u.first_name LIKE '%$search%' OR u.last_name LIKE '%$search%'
+    WHERE u.first_name LIKE '%$user%'
+>>>>>>> c4fe78ecfc8ede58b5be919819882cfc53f9100b
     ")->getResult();
 }
 
