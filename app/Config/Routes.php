@@ -65,8 +65,12 @@ $routes->post('/register','AuthController::register');
 
 $routes->get('/logout','AuthController::logout');
 
+<<<<<<< HEAD
 $routes->get('administration','Home::admis');
 
 $routes->get('search','UsersController::search');
 
 $routes->get('profile','UsersController::showUserProfile');
+=======
+$routes->post('/search','UsersController::searchUsers');
+>>>>>>> 700345297c0561cff6de78131e0a7e83cdad462e

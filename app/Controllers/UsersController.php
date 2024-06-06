@@ -16,6 +16,7 @@ class UsersController extends BaseController
       return view('users/index');
   }
 
+<<<<<<< HEAD
   public function search()
   {
     $search = $this->request->getGet('search');
@@ -29,3 +30,13 @@ class UsersController extends BaseController
     return view('profile', ['user' => $user]);
   }
 }
+=======
+  public function searchUsers(){
+
+    $search = $this->request->getPost('search');
+    $users = $this->usersModel->searchUsers($search);
+    return view('users/', ['users' => $users]);
+  }
+
+}
+>>>>>>> 700345297c0561cff6de78131e0a7e83cdad462e
