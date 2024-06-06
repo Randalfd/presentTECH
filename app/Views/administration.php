@@ -11,7 +11,7 @@
 
 <header class="bg-gray-400 p-4 flex items-center justify-between">
     <div class="flex items-center">
-        <a href="<?= base_url('home') ?>">
+        <a href="<?= base_url('administration') ?>">
             <img src="<?= base_url('img/logonegro.png') ?>" alt="Botón" class="h-12"/>
         </a>
         <h1 class="ml-4 text-xl font-semibold text-black">PresenTECH</h1>

@@ -67,6 +67,6 @@ $routes->get('/logout','AuthController::logout');
 
 $routes->get('administration','Home::admis');
 
-$routes->get('search','AuthController::search');
+$routes->get('search','UsersController::search');
 
-$routes->get('profile','AuthController::showUserProfile');
+$routes->get('profile','UsersController::showUserProfile');
