@@ -38,7 +38,7 @@
 			<?php endif; ?>
 			<a href="<?= base_url('logout') ?>" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300">
 				<i class="fas fa-arrow-left"></i> <!-- Icono de flecha hacia atrás -->
-				Cerrar Sesion
+				Cerrar Sesión
 			</a>
 			<button onclick="window.location.reload();" class="bg-gray-800 text-white p-2 rounded hover:text-gray-300" title="Recargar página"><i class="fas fa-sync-alt"></i></button>
 		</div>
@@ -97,7 +97,6 @@
 			<p class="text-gray-700">Email: presentech@gmail.com</p>
 			<p class="text-gray-700">Teléfono: +54 3571 00-0000</p>
 		</div>
-	</div>
 	</div>
 
 </body>

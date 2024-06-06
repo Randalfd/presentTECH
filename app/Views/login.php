@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="<?php echo base_url('img/logos/logonegrosinfondo.png') ?>">
 </head>
+
 <body class="bg-gray-300 flex items-center justify-center min-h-screen">
   <div class="w-full max-w-md p-8 space-y-8 bg-gray-800 text-white rounded-lg shadow-lg relative">
     <a href="<?= base_url('/') ?>" class="absolute top-4 left-4 flex items-center text-white hover:text-gray-400">
@@ -31,7 +33,7 @@
         </div>
       </div>
       <div class="text-sm text-red-500">
-        <?php if (session()->getFlashdata("errors") != ""): ?>
+        <?php if (session()->getFlashdata("errors") != "") : ?>
           <?= session()->getFlashdata("errors") ?>
         <?php endif; ?>
       </div>
@@ -51,4 +53,5 @@
     </form>
   </div>
 </body>
+
 </html>

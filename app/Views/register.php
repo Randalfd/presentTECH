@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="text-sm text-red-500">
-        <?php if (session()->getFlashdata("errors") != ""): ?>
+        <?php if (session()->getFlashdata("errors") != "") : ?>
           <?= session()->getFlashdata("errors") ?>
         <?php endif; ?>
       </div>

@@ -70,3 +70,5 @@ $routes->get('administration','Home::admis');
 $routes->get('search','AuthController::search');
 
 $routes->get('profile','AuthController::showUserProfile');
+$routes->post('/search','UsersController::searchUsers');
+
